@@ -12,6 +12,7 @@ python manage.py migrate
 ```shell
 python manage.py runserver
 ```
+
 ##API Info
 ### 1. Occupy a seat - [Endpoint URL - /occupy/ ]
 This endpoint will be given the person's name and ticket ID (this should be a UUID field, tickets will not contain information about the seat number beforehand) as input and outputs the seat number which will be occupied.
