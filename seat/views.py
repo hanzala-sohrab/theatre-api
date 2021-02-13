@@ -59,13 +59,21 @@ def occupy_seat(request):
             seat = Seat.objects.get(seatNum=i)
         except Seat.DoesNotExist:
             vacantSeats.put(i)
-    request.data['seatNum'] = vacantSeats.get()
-    request.data['status'] = True
-    serializer = SeatSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if vacantSeats.empty():
+        return Response(
+            {
+                "message": "Show is houseful. No more bookings can be made!"
+            },
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    else:
+        request.data['seatNum'] = vacantSeats.get()
+        request.data['status'] = True
+        serializer = SeatSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 # Vacate seat
