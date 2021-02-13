@@ -15,7 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-MAX_OCCUPANCY = 20
+MAX_OCCUPANCY = 5
 
 
 # Quick-start development settings - unsuitable for production
