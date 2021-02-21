@@ -57,3 +57,6 @@ curl -i -H "Accept: application/json" 'http://127.0.0.1:8000/seat/get_info/Fooba
 ```shell
 curl -i -H "Accept: application/json" 'http://127.0.0.1:8000/seat/get_info/91d5a57c-052b-47e8-8c63-0d77557cbaa1'
 ```
+
+## Note
+The theatre's **MAX_OCCUPANCY** is initially set to 5. It can be changed in the project's settings file ``theatre/settings.py``.
