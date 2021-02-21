@@ -3,7 +3,6 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 
 urlpatterns = [
-    # path('', views.Index.as_view(), name='index'),
     path('seat/occupy/', views.occupy_seat, name='occupy'),
     path('seat/vacate/', views.vacate_seat, name='vacate'),
     path('seat/get_info/<int:seatNo>', views.get_info_by_seat_num, name='info_seat'),

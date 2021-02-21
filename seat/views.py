@@ -1,38 +1,10 @@
 from rest_framework.decorators import api_view
 from .models import Seat
 from .serializers import SeatSerializer
-from django.shortcuts import redirect
-from .forms import SeatForm
-from django.views.generic.edit import FormView
 from rest_framework.response import Response
 from rest_framework import status
 from theatre.settings import MAX_OCCUPANCY
 from queue import Queue
-
-
-# class Index(FormView):
-#     template_name = 'seat/index.html'
-#     form_class = SeatForm
-#
-#     def form_valid(self, form):
-#         print(self.request.POST)
-#         # occupy_name = form.cleaned_data.get('occupy_name')
-#         # occupy_ticketID = form.cleaned_data.get('occupy_ticketID')
-#         #
-#         # vacate_seat = form.cleaned_data.get('vacate_seat')
-#         #
-#         # info_name = form.cleaned_data.get('info_name')
-#         # info_ticketID = form.cleaned_data.get('info_ticketID')
-#         # info_seat = form.cleaned_data.get('info_seat')
-#         #
-#         # if occupy_name != '' and occupy_ticketID != '':
-#         if 'occupy' in self.request.POST:
-#             return redirect('occupy', self.request)
-#         # elif vacate_seat != '':
-#         #     if 'vacate' in self.request.POST:
-#         #         return redirect('vacate', vacate_seat)
-#         # else:
-#         #     return redirect('branches', info_name, info_ticketID, info_seat)
 
 
 # Overriding Django's default 404 with custom JSON response
