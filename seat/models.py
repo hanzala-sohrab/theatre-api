@@ -2,10 +2,10 @@ from django.db import models
 
 
 class Seat(models.Model):
+    # id = models.AutoField(primary_key=True)
     name = models.CharField(verbose_name="Person's name", max_length=30)
-    seatNum = models.IntegerField(verbose_name="Seat number", unique=True)
+    seatNum = models.IntegerField(primary_key=True, verbose_name="Seat number", unique=True)
     ticketID = models.UUIDField(
-        primary_key=True,
         verbose_name="Ticket ID",
         unique=True
     )
