@@ -65,6 +65,7 @@ class VacateSeat(generics.DestroyAPIView):
         return Response(context, status=_status)
 
 
+# Get person/seat information by seat number
 class GetInfoSeatNum(generics.ListAPIView):
     model = Seat
     serializer_class = SeatSerializer
@@ -73,6 +74,7 @@ class GetInfoSeatNum(generics.ListAPIView):
         return self.model.objects.filter(seatNum=self.kwargs['seatNo'])
 
 
+# Get person/seat information by ticket ID
 class GetInfoId(generics.ListAPIView):
     model = Seat
     serializer_class = SeatSerializer
@@ -81,6 +83,7 @@ class GetInfoId(generics.ListAPIView):
         return self.model.objects.filter(ticketID=self.kwargs['ticketNo'])
 
 
+# Get person/seat information by person's name
 class GetInfoName(generics.ListAPIView):
     model = Seat
     serializer_class = SeatSerializer
